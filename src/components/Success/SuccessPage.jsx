@@ -1,5 +1,5 @@
 import React from "react";
-import "./ConfirmationPage.css";
+import "./SuccessPage.css";
 
 function ConfirmationPage() {
     return (

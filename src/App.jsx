@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/Home/HomePage';
 import OrderPage from './components/Order/OrderPage';
-import ConfirmationPage from './components/Confirmation/ConfirmationPage';
+import ConfirmationPage from './components/Success/SuccessPage';
 
 
 
