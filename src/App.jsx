@@ -1,6 +1,6 @@
-import { useState } from 'react'
+
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import HomePage from './components/Home/HomePage';
 import OrderPage from './components/Order/OrderPage';
 import ConfirmationPage from './components/Success/SuccessPage';
@@ -9,13 +9,11 @@ import ConfirmationPage from './components/Success/SuccessPage';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/order" element={<OrderPage/>} />
-        <Route path="/confirmation" element={<ConfirmationPage/>}/>
-      </Routes>
-    </Router>
+      <Switch>
+        <Route exact path="/" component={HomePage}/>
+        <Route path="/order" component={OrderPage} />
+        <Route path="/confirmation" component={ConfirmationPage}/>
+      </Switch>
   )
 }
 
