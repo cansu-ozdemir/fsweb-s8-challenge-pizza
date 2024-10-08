@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SuccessPage.css";
+import { useHistory } from "react-router-dom";
 
-function ConfirmationPage() {
+function SuccessPage() {
+
+    const history = useHistory();
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            history.push('/');
+        }, 5000);
+
+        return () => clearTimeout(timeoutId);
+    }, [history]);
+
     return (
-        <h1>Sipariş Onaylandı</h1>
+        <div className="success-page">
+            <div className="success-header">
+                <h1>Teknolojik Yemekler</h1>
+            </div>
+            <div className="success-content">
+                <p>TEBRİKLER!</p>
+                <p>SİPARİŞİNİZ ALINDI!</p>
+            </div>
+            </div>
     );
-}
+};
 
-export default ConfirmationPage;
+export default SuccessPage;
