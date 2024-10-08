@@ -1,91 +1,191 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Barlow";
+}
+
 .order-page {
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
     min-height: 100vh;
-    width: 100%;
-    margin: auto;
-    background-color: #FFFFFF;
 }
 
-.order-card {
-    width: 100%;
-    max-width: 800px;
-    background-color: #FFFFFF;
-   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-   padding: 2rem;
-}
-
-.app-header {
-    background-color: #CE2829;
+.order-header {
+    background-color: #ce2829;
     color: #FFFFFF;
-    padding: 1rem;
+    padding: 1rem 0;
+}
+
+.order-header h1 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
     text-align: center;
+}
+
+.order-header p {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    margin-right: 15%;
+}
+
+.order-header p a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.order-header p span {
+    font-weight: bold;
 }
 
 .order-content {
     flex: 1;
+    background-color: #FFFFFF;
     display: flex;
-    justify-self: center;
-    align-items: center;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #FFFFFF;
-    margin-bottom: 0.5rem;
-}
-
-h2 {
-    color: #292929;
-    margin-top: 1.5rem;
+    justify-content: center;
     text-align: left;
-    font-size: 20px;
-    font-family: Barlow;
+    padding: 1rem;
+}
+
+.order-card {
+    max-width: 600px;
+    width: 100%;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.order-card h2 {
+    color: #292929;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.order-card h3 {
+    color: #292929;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 75%;
+}
+
+.order-card span {
+    color: #292929;
+    font-size: 1rem;
+}
+
+.size-dough {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.size-section, .dough-section {
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 .size-options {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+}
+
+.size-options label, .extra-options label {
+    font-weight: normal;
+    margin-bottom: 0.5rem;
 }
 
 .extra-options {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+select, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .quantity-selector {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    border-radius: 1rem 0;
+    
 }
 
 .quantity-selector button {
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    color: #000000;
     background-color: #FDC913;
     border: none;
+    color: #292929;
+    font-size: 1.2rem;
+    width: 30px;
+    height:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.quantity-selector span {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+}
+
+.order-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    
+}
+
+.order-math {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+}
+
+.order-total {
+flex-grow: 1;
+margin-left: 3rem;
+}
+
+.order-total h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.order-total p {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-total p:last-child {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #ce2829;
 }
 
 button[type="submit"] {
     background-color: #FDC913;
-    color: #000000;
-    border-color: none;
-    padding: 0.5em 1em;
-    font-size: 1em;
+    border: none;
+    color:#292929;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem;
+    cursor: pointer;
     width: 100%;
-    font-family: Barlow;
-    margin-top: 1rem;
-}
-
-.order-summary {
-    border: 1px solid gray;
-    padding: 1rem;
-    margin-top: 1rem;
+    border-radius: 5px;
 }
 
