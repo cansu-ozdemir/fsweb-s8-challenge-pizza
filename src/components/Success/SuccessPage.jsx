@@ -12,7 +12,11 @@ function SuccessPage() {
         }, 5000);
 
         return () => clearTimeout(timeoutId);
+<<<<<<< HEAD
     }, [history]);
+=======
+    }, [history]); 
+>>>>>>> 60620414065f87fa0f0b0fd519b0eff695bc8d24
 
     return (
         <div className="success-page">

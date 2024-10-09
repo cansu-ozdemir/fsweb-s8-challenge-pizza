@@ -1,9 +1,13 @@
 
 import { useHistory } from "react-router-dom";
-import { Form, Label, Button, Card, CardBody, Input, CardText, FormGroup, } from "reactstrap";
+import { Form, Label, Button, Card, CardBody, Input, CardText, FormGroup, Alert } from "reactstrap";
 import "./OrderPage.css";
 import axios from "axios";
 import { PizzaOrder } from "./PizzaOrder";
+<<<<<<< HEAD
+=======
+import { useEffect, useState } from "react";
+>>>>>>> 60620414065f87fa0f0b0fd519b0eff695bc8d24
 
 
 const OrderPage = () => {
