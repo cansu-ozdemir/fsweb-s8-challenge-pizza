@@ -14,7 +14,7 @@ function HomePage() {
      <div className="home-container">
         <div className="content">
             <h1>Teknolojik Yemekler</h1>
-            <p>KOD ACIKTIRIR<br />PİZZA, DOYURUR</p>
+            <p><span>KOD</span> <span>ACIKTIRIR</span><br /><span>PİZZA,</span> <span>DOYURUR</span></p>
             <button onClick={handleOrderClick} className="order-button">ACIKTIM</button>
         </div>
      </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Label, Button, Card, CardBody, Input, CardText, FormGroup, } from "reactstrap";
 import "./OrderPage.css";
+import axios from "axios";
 
 
 const OrderPage = () => {
@@ -16,6 +17,8 @@ const OrderPage = () => {
  const [total, setTotal] = useState(85.50);
 
  const extraOptions = ["Pepperoni", "Tavuk Izgara", "Mısır", "Sarımsak", "Ananas", "Sosis", "Soğan", "Sucuk", "Biber", "Kabak", "Kanada Jambonu", "Domates", "Jalepeno"];
+
+ 
 
  useEffect(() => {
     const extrasTotal = extras.length * 5;
@@ -39,7 +42,7 @@ const OrderPage = () => {
     return true;
  };
 
- const handleSubmit = (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
     if (size && dough && validateExtras()) {
         history.push("/success");

@@ -38,3 +38,28 @@ body, html {
     font-weight: 300;
     margin: 0;
 }
+
+@media screen and (max-width: 768px) {
+    .success-header h1 {
+        margin-top: 7rem;
+        font-size: 30px;
+    }
+
+    .success-content {
+        justify-content: flex-start;
+        padding-top: 7rem;
+    }
+
+    .success-content p {
+       font-size: 70px;
+       line-height: 1.2;
+    }
+
+    .success-content p:first-child {
+        margin-bottom: 1rem;
+    }
+
+    .success-content p span {
+        display: block;
+    }
+}

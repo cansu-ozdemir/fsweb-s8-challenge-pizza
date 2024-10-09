@@ -6,13 +6,13 @@ function SuccessPage() {
 
     const history = useHistory();
 
-    useEffect(() => {
+    /* useEffect(() => {
         const timeoutId = setTimeout(() => {
             history.push('/');
         }, 5000);
 
         return () => clearTimeout(timeoutId);
-    }, [history]);
+    }, [history]); */
 
     return (
         <div className="success-page">
@@ -21,7 +21,7 @@ function SuccessPage() {
             </div>
             <div className="success-content">
                 <p>TEBRİKLER!</p>
-                <p>SİPARİŞİNİZ ALINDI!</p>
+                <p><span>SİPARİŞİNİZ</span> <span>ALINDI!</span></p>
             </div>
             </div>
     );

@@ -55,3 +55,45 @@
     background-color: #e0b100;
 }
 
+@media screen and (max-width: 540px) {
+
+    .home-container{
+        overflow: auto;
+    }
+
+    .content{
+        padding: 0 1rem;
+    }
+    .content h1 {
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        font-size: 30px;
+    }
+
+    .content p {
+        line-height: 1;
+        font-size: 70px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .content p span {
+       display: block;
+    }
+
+    .content p br {
+        display: none;
+    }
+
+    .content p span + br + span {
+        margin-top: 0.75rem;
+    }
+
+    .order-button {
+        padding: 8px 30px;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+        margin-top: 0.5rem;
+    }
+}
