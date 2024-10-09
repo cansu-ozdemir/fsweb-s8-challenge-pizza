@@ -12,24 +12,12 @@ const OrderPage = () => {
 
  const { name, size, dough, extras, note, quantity, basePrice, extraPrice, minExtras, maxExtras } = PizzaOrder();
 
- const [warning, setWarning] = useState ({show: false, message: "", type: ""});
-
- useEffect(() => {
-    if(extras.value.length > 0 && extras.value.length < minExtras) {
-        setWarning({
-            show: true,
-            message: `Lütfen en az ${minExtras} malzeme seçiniz.`,
-            type: "danger"
-        });
-    } else {
-        setWarning({show: false, message: "", type: ""});
-    }
- }, [extras.value, minExtras]);
+ 
 
 
  const handleExtraChange = (extra) => {
     extras.set(prevExtras => {
-        if (prevExtras.includes(extra)) {  // Bu satır düzeltildi
+        if (prevExtras.includes(extra)) { 
             return prevExtras.filter(item => item !== extra);
         }
         if (prevExtras.length < maxExtras) {
