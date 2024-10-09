@@ -6,13 +6,13 @@ function SuccessPage() {
 
     const history = useHistory();
 
-    /* useEffect(() => {
+    useEffect(() => {
         const timeoutId = setTimeout(() => {
             history.push('/');
         }, 5000);
 
         return () => clearTimeout(timeoutId);
-    }, [history]); */
+    }, [history]); 
 
     return (
         <div className="success-page">
