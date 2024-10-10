@@ -10,56 +10,147 @@ body, html {
     display: flex;
     flex-direction: column;
     color: #FFFFFF;
+    align-items: center;
+    text-align: center;
 }
 
 .success-header {
     padding: 1rem;
-    text-align: center;
 }
 
 .success-header h1 {
-    margin-top: 5rem;
-    font-size: 2rem;
+    font-family: 'Barlow';
+    font-size: 2.5rem;
+    margin: 1rem 0;
     font-weight: medium;
 }
 
 .success-content {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align:center
+    max-width: 600px;
+    width: 100%;
+    padding: 0 1rem;
 }
 
-.success-content p {
-    font-family: 'Roboto Condensed';
-    font-size: 70px;
-    font-weight: 300;
-    margin: 0;
+.success-subtitle {
+font-family: 'Satisfy';
+font-size: 2rem;
+color: #FDC913;
+margin-bottom: 0.1rem;
 }
+
+.success-title {
+    font-family: 'Roboto Condensed';
+    font-size: 5rem;
+    font-weight: 300;
+    margin: 0 0 2rem 0;
+}
+
+.yatay-cizgi {
+    border-radius: 1px;
+    height: 0.5px;
+    width: 60%;
+    background-color: #FFFFFF;
+    margin-bottom: 1.5rem;
+}
+
+.success-content h3 {
+    font-family: 'Barlow';
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.order-details {
+    font-family: 'Barlow';
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.order-details p {
+    text-align: left;
+    margin: 0.5rem 0;
+    max-width: 70%;
+}
+
+.order-details p strong {
+    font-weight: 700;
+}
+
+.order-total {
+    border: 0.5px solid white;
+    padding: 1.5rem 1rem;
+    width: 40%;
+    box-sizing: border-box;
+}
+
+.order-total h4 {
+    font-family: 'Barlow';
+    font-size: 1rem;
+    margin: 1rem;
+    text-align: left;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Barlow';
+    font-size: 0.90rem;
+    margin-bottom: 0.5rem;
+}
+
+
 
 @media screen and (max-width: 768px) {
-    .success-header h1 {
-        margin-top: 7rem;
-        font-size: 30px;
-    }
+.success-header h1 {
+font-size: 1.5rem;
+margin-top: 2rem;
+}
 
-    .success-content {
-        justify-content: flex-start;
-        padding-top: 7rem;
-    }
+.success-content {
+    justify-content: flex-start;
+    padding-top: 2rem;
+}
 
-    .success-content p {
-       font-size: 70px;
-       line-height: 1.2;
-    }
+.success-subtitle {
+    font-size: 1.2rem;
+}
 
-    .success-content p:first-child {
-        margin-bottom: 1rem;
-    }
+.success-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
 
-    .success-content p span {
-        display: block;
-    }
+.yatay-cizgi {
+    width: 70%;
+}
+
+.success-content h3 {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.order-details {
+    font-size: 0.9rem;
+}
+
+.order-details p {
+    max-width: 80%;
+}
+
+.order-total {
+    width: 50%;
+    padding: 1rem 0.5rem;
+    
+}
+
+.order-total h4 {
+    font-size: 0.8rem;
+    margin: 0.5rem;
+}
+
+.total-row {
+    font-size: 0.7rem;
+}
 }
