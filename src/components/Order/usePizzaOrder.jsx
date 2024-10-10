@@ -1,7 +1,7 @@
 import  { useState } from "react";
 
 export const usePizzaOrder = () => {
-const [pizzaOrder, setPizzaOrder] = useState({
+const initialState = {
    name: "Position Absolute Acı Pizza",
    size: "",
    dough: "",
@@ -12,7 +12,13 @@ const [pizzaOrder, setPizzaOrder] = useState({
    extraPrice: 5,
    minExtras: 4,
    maxExtras: 10,
-});
+};
+
+const [pizzaOrder, setPizzaOrder] = useState(initialState);
+
+const resetOrder = () => {
+   setPizzaOrder(initialState);
+};
 
 const updateOrder = (newData) => {
    setPizzaOrder(prevOrder => ({...prevOrder, ...newData}));
@@ -24,7 +30,7 @@ const setExtras = (newExtras) => updateOrder({extras: newExtras});
 const setNote = (newNote) => updateOrder({note: newNote});
 const setQuantity = (newQuantity) => updateOrder({quantity: newQuantity});
 
-const sizeOptions = ['Küçük', 'Orta', 'Büyük'];
+const sizeOptions = ['S', 'M', 'L'];
 const doughOptions = ['Süper İnce', 'İnce', 'Kalın'];
 const extrasOptions = ["Pepperoni", "Tavuk Izgara", "Mısır", "Sarımsak", "Ananas", "Sosis", "Soğan", "Sucuk", "Biber", "Kabak", "Kanada Jambonu", "Domates", "Jalepeno"];
 
@@ -38,6 +44,7 @@ return{
    setQuantity,
    sizeOptions,
    doughOptions,
-   extrasOptions
+   extrasOptions,
+   resetOrder,
 };
 };

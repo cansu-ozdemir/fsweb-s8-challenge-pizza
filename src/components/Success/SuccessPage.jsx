@@ -3,17 +3,18 @@ import "./SuccessPage.css";
 import { useHistory } from "react-router-dom";
 
 
-function SuccessPage({pizzaOrder}) {
+function SuccessPage({pizzaOrder, resetOrder}) {
 
     const history = useHistory();
 
      useEffect(() => {
         const timeoutId = setTimeout(() => {
+            resetOrder();
             history.push('/');
-        }, 5000);
+        }, 15000);
 
         return () => clearTimeout(timeoutId);
-    }, [history]); 
+    }, [history, resetOrder]); 
 
     const calculateTotal = () => {
         const basePrice = pizzaOrder.basePrice * pizzaOrder.quantity;
@@ -43,7 +44,7 @@ function SuccessPage({pizzaOrder}) {
                     <p>Ek Malzemeler: <strong>{pizzaOrder.extras.join(",")}</strong></p>
                     {pizzaOrder.note && pizzaOrder.note.trim() !== "" && (<p>Not: {pizzaOrder.note}</p>)}
                 </div>
-                <div className="order-total">
+                <div className="order-total-one">
                     <h4>Sipariş Toplamı</h4>
                     <div className="total-row">
                         <span>Seçimler</span>

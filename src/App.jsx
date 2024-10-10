@@ -20,7 +20,8 @@ function App() {
     setQuantity,
     sizeOptions,
     doughOptions,
-    extrasOptions
+    extrasOptions,
+    resetOrder
   } = usePizzaOrder();
 
 
@@ -46,7 +47,8 @@ function App() {
         <Route path="/success" render={(props) => (
           <SuccessPage
           {...props}
-          pizzaOrder={pizzaOrder} />
+          pizzaOrder={pizzaOrder}
+          resetOrder={resetOrder} />
         )}
         />
       </Switch>
