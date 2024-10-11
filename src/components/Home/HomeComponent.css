@@ -1,0 +1,253 @@
+.home-component {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.add-cards-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    height: 400px;
+}
+
+.add-cards-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-card {
+    border-radius: 10px;
+    font-family: Barlow;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-1 {
+    flex: 1;
+    background-image: url('/public/cta/kart-1.png');
+}
+
+.card-2, .card-3 {
+    height: calc(50% - 10px);
+}
+
+.card-2 { background-image: url('/public/cta/kart-2.png'); }
+.card-3 { background-image: url('/public/cta/kart-3.png'); }
+
+
+.card-content {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 20px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+
+.add-card h2 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+    text-align: left;
+}
+
+.add-card .card-h2 {
+    color: #FFFFFF !important;
+}
+
+.add-card .card-h3 {
+    color: black;
+}
+
+.add-card .card-h1 {
+    color: #FFFFFF;
+    font-size: 50px;
+    font-family: 'Quattrocento';
+}
+
+.add-card .card-p1 {
+    color: #FFFFFF;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 150px;
+}
+
+.add-card p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.card-button {
+    background-color: #FFFFFF;
+    color: #ec2928;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    align-self: flex-start;
+    }
+
+    .section-title {
+        font-size: 20px;
+        color: #CE2829;
+        font-family: 'Satisfy';
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+        font-size: 30px;
+        color: #292929;
+        font-family: 'Barlow';
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .categories {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .category-section {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 10px 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 50px;
+        background-color: #ffffff;
+        font-weight: bold;
+    }
+
+    .category-section img {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 8px;
+    }
+
+    .category-section span {
+        font-size: 15px;
+        color: #292929;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .product-card {
+        text-align: center;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .product-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .product-card .price {
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 768px) {
+        .home-component {
+            padding: 10px;
+        }
+    
+        .add-cards-container {
+            height: auto;
+            flex-direction: column;
+        }
+    
+        .add-card-left,
+        .add-cards-right {
+            width: 100%;
+        }
+    
+        .card-1, .card-2, .card-3 {
+            height: 200px;
+            margin-bottom: 20px;
+        }
+    
+        .add-card h2 {
+            font-size: 20px;
+        }
+    
+        .add-card .card-h1 {
+            font-size: 40px;
+        }
+    
+        .add-card .card-p1 {
+            margin-bottom: 50px;
+        }
+    
+        .section-title {
+            font-size: 18px;
+        }
+    
+        .section-subtitle {
+            font-size: 24px;
+        }
+    
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+    
+        .category-section {
+            flex-direction: column;
+            padding: 10px;
+        }
+    
+        .products {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    
+        .product-card {
+            padding: 20px;
+        }
+    
+        .product-card h3 {
+            font-size: 16px;
+        }
+    
+        .product-info {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    
+        .product-card .price,
+        .product-card .rate {
+            font-size: 14px;
+        }
+    }
