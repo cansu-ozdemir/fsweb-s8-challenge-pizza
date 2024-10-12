@@ -7,9 +7,18 @@ function Footer() {
         <footer className="footer">
             <div className="footer-left">
                 <h1>Teknolojik <br /> Yemekler</h1>
-                <p>341 Londonderry Road,<br />Istanbul Türkiye</p>
-                <p>aciktim@teknolojikyemekler.com</p>
-                <p>+90 216 123 45 67</p>
+                <p>
+                <img src="/icons/icon-1.png" className="footer-icon" />
+                341 Londonderry Road,<br />Istanbul Türkiye
+                </p>
+                <p>
+                <img src="/icons/icon-2.png" className="footer-icon" />
+                aciktim@teknolojikyemekler.com
+                </p>
+                <p>
+                <img src="/icons/icon-3.png" className="footer-icon" />
+                +90 216 123 45 67
+                </p>
             </div>
 
             <div className="footer-middle">

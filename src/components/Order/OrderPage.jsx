@@ -1,8 +1,9 @@
 
 import { useHistory } from "react-router-dom";
-import { Form, Label, Button, Card, CardBody, Input, CardText, FormGroup, } from "reactstrap";
+import { Form, Label, Button, Input, FormGroup, FormFeedback, } from "reactstrap";
 import "./OrderPage.css";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 
 const OrderPage = ({
@@ -20,20 +21,55 @@ const OrderPage = ({
 
  const { name, size, dough, extras, note, quantity, basePrice, extraPrice, minExtras, maxExtras } = pizzaOrder;
 
- 
+ const [sizeError, setSizeError] = useState(false);
+ const [doughError, setDoughError] = useState(false);
+ const [extrasError, setExtrasError] = useState("");
+ const [submitError, setSubmitError] = useState('');
+
+ useEffect(() => {
+    validateExtras();
+ }, [extras]);
 
 
  const handleExtraChange = (extra) => {
-    const newExtras = extras.includes(extra)
-    ? extras.filter(item => item !== extra) 
-    : extras.length < maxExtras
-    ? [...extras, extra]
-    : extras;
+    let newExtras; 
+    if (extras.includes(extra)) {
+        newExtras = extras.filter(item => item !== extra);
+    } else if (extras.length < maxExtras) {
+        newExtras = [...extras, extra];
+    } else {
+        setExtrasError(`En fazla ${maxExtras} adet malzeme seçebilirsiniz.`);
+        return;
+    }
     setExtras(newExtras);
-};
+ };
 
- const validateExtras = () => 
-      extras.length >= minExtras;
+
+ const validateExtras = () => {
+    if (extras.length < minExtras) {
+        setExtrasError(`Lütfen en az ${minExtras} adet malzeme seçiniz.`);
+        return false;
+    }
+    if (extras.length > maxExtras) {
+        setExtrasError(`Lütfen en fazla ${maxExtras} adet malzeme seçiniz.`);
+        return false;
+    }
+    setExtrasError('');
+    return true;
+ };
+
+
+ const handleSizeChange = (newSize) => {
+    setSize(newSize);
+    setSizeError(false);
+ };
+
+ const handleDoughChange = (newDough) => {
+    setDough(newDough);
+    setDoughError(false);
+ };
+
+
 
 const calculateTotal = () => {
     const extrasTotal = extras.length * extraPrice;
@@ -42,7 +78,12 @@ const calculateTotal = () => {
 
  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (size && dough && validateExtras()) {
+    
+    setSizeError(!size);
+    setDoughError(!dough);
+    const validExtras = validateExtras();
+
+    if (size && dough && validExtras) {
         try {
             const orderData = {
                 isim: name, 
@@ -60,10 +101,11 @@ const calculateTotal = () => {
         history.push("/success");
         } catch (error) {
             console.error(error);
+            setSubmitError("Sipariş verilirken bir hata oluştu.");
         }
     } else {
-        alert("Lütfen gerekli alanları doldurunuz.");
-    }
+        setSubmitError("Lütfen eksik alanları doldurunuz.");
+    } 
  };
 
 
@@ -91,44 +133,49 @@ const calculateTotal = () => {
 
 
             <Form onSubmit={handleSubmit}>
+            {submitError && <div className="error-message">{submitError}</div>}
                 <FormGroup className="size-dough">
                     <div className="size-section">
-                    <Label for="size">Boyut Seç <span style={{color: '#ce2829'}}>*</span></Label>
+                    <Label htmlFor="size">Boyut Seç <span style={{color: '#ce2829'}}>*</span></Label>
                     <div className="size-options">
                     {sizeOptions.map((boyut, index) => (
                         <Label key={index} className={`size-option ${size === sizeOptions[index] ? 'selected' : ''}`}>
                                 <Input
                                 type="radio" name="size" 
                                 value={sizeOptions[index]}
-                                onChange={(e) => setSize(e.target.value)}
+                                onChange={(e) => handleSizeChange(e.target.value)}
                                 checked={size === sizeOptions[index]} 
-                                required={index===0} />
+                                invalid={sizeError} 
+                                />
                                 {boyut}
                             </Label>
                     ))}
                     </div>
+                    {sizeError && <FormFeedback className="d-block">Lütfen Pizza Boyutu seçiniz</FormFeedback>}
                     </div>
 
 
                 <div className="dough-section">
-                    <Label for="dough-select">Hamur Seç <span style={{color: '#ce2829'}}>*</span></Label>
+                    <Label htmlFor="dough-select">Hamur Seç <span style={{color: '#ce2829'}}>*</span></Label>
                     <Input
                     type="select"
                     id="dough-select"
                     className="dough-select"
                     value={dough}
-                    onChange={(e) => setDough(e.target.value)}
-                    required>
+                    onChange={(e) => handleDoughChange(e.target.value)}
+                    invalid={doughError}
+                    >
                         <option value="" disabled>Hamur Kalınlığı</option>
                         {doughOptions.map((type, index) => (
                             <option key={index} value={type}>{type}</option>
                         ))}
                     </Input>
+                    {doughError && <FormFeedback className="d-block">Lütfen Hamur Kalınlığı seçiniz</FormFeedback>}
                     </div>
                 </FormGroup>
 
                 <FormGroup>
-                    <Label for="extra-select">Ek Malzemeler</Label>
+                    <Label htmlFor="extra-select">Ek Malzemeler</Label>
                     <p className="extras-info">En az {minExtras} ve en fazla {maxExtras} malzeme seçebilirsiniz. {extraPrice}₺</p>
                     <div className="extra-options">
                     {extrasOptions.map((extra, index) => ( <label key={index} className="checkbox-container">
@@ -139,15 +186,17 @@ const calculateTotal = () => {
                             value={extra}
                             checked={extras.includes(extra)}
                             onChange={() => handleExtraChange(extra)}
-                            disabled={extras.length >= maxExtras && !extras.includes(extra)} />
+                            disabled={extras.length >= maxExtras && !extras.includes(extra)}
+                            />
                             <span className="checkmark"></span>
                         </label>
                         ))}
                         </div>
+                        {extrasError && <FormFeedback className="d-block">{extrasError}</FormFeedback>}
                 </FormGroup>
 
                 <FormGroup>
-                    <Label for="order-note">Sipariş Notu</Label>
+                    <Label htmlFor="order-note">Sipariş Notu</Label>
                     <Input
                     type="textarea"
                     id="order-note"

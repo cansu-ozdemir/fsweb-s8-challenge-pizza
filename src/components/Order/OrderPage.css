@@ -260,6 +260,18 @@ select, textarea {
 
 .note-textarea {
     background-color: #FAF7F2 !important;
+    height: 100px;
+    max-height: 100px;
+    resize: none;
+    overflow-y: auto;
+    line-height: 1.5;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.note-textarea:focus {
+    outline: none;
+    border-color: #FDC913;
 }
 
 .order-summary {
