@@ -35,7 +35,7 @@ function Footer() {
                 <h3>Instagram</h3>
                 <div className="instagram-photos">
                     {[0, 1, 2, 3, 4, 5]. map((num) => (
-                        <img key={num} src={`/assets/Iteration-2-aseets/footer/insta/li-${num}.png`}
+                        <img key={num} src={`/insta/li-${num}.png`}
                         alt={`Instagram post ${num+1}`} />
                     ))}
                 </div>
